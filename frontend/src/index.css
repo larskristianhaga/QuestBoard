@@ -1,0 +1,178 @@
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.0%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar styles for cosmic theme */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-purple-500\/50::-webkit-scrollbar-thumb {
+  background-color: rgba(168, 85, 247, 0.5);
+  border-radius: 6px;
+}
+
+/* Checkered background for transparent asset previews */
+.bg-checkered {
+  background-image: 
+    linear-gradient(45deg, #f3f4f6 25%, transparent 25%), 
+    linear-gradient(-45deg, #f3f4f6 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #f3f4f6 75%), 
+    linear-gradient(-45deg, transparent 75%, #f3f4f6 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Cosmic glow effects for progress bars */
+.progress-glow {
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+.progress-glow-emerald {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.progress-glow-yellow {
+  box-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
+}
+
+/* Smooth transitions for all interactive elements */
+.transition-cosmic {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover glow effects */
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+.hover-glow-emerald:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.hover-glow-blue:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Backdrop blur enhancement */
+.backdrop-blur-cosmic {
+  backdrop-filter: blur(12px) saturate(150%);
+}
+
+/* Battle Sword Animation */
+.sword-container {
+  position: relative;
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sword-swing {
+  animation: swordSlash 0.6s ease-out;
+}
+
+@keyframes swordSlash {
+  0% {
+    transform: rotate(-30deg) scale(1);
+  }
+  25% {
+    transform: rotate(15deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(30deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(-5deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.sword-icon {
+  filter: drop-shadow(0 0 8px currentColor);
+  transition: all 0.3s ease;
+}
+
+.sword-swing .sword-icon {
+  filter: drop-shadow(0 0 15px #fbbf24) drop-shadow(0 0 25px #f59e0b);
+}
+
+/* Sparkle Effects */
+.sparkle {
+  position: absolute;
+  font-size: 1rem;
+  pointer-events: none;
+  opacity: 0;
+  animation: sparkleFloat 0.6s ease-out;
+}
+
+.sparkle-1 {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  top: 50%;
+  right: 15%;
+  animation-delay: 0.2s;
+}
+
+.sparkle-3 {
+  bottom: 20%;
+  left: 50%;
+  animation-delay: 0.4s;
+}
+
+@keyframes sparkleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-15px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.8);
+  }
+}
